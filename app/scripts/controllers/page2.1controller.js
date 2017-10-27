@@ -1,3 +1,6 @@
-app.controller("page2controller1",['$scope',function($scope){
-     $scope.display="this is a page2.1 content"
+app.controller("miniProjectCtrl1",['$scope','$http' ,function($scope,$http){
+   $http.get('/scripts/controllers/objectrecord.json').then(function(response){
+    $scope.res=_.get(response,'data.res');
+    console.log($scope.res)
+   })
 }])

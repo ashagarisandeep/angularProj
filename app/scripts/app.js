@@ -1,6 +1,7 @@
 'use strict';
-var app=angular
-  .module('trainingProject', [
+
+
+var app =angular.module('trainingProject', [
     'ngRoute',
     'ui.router',
     'ngAnimate',
@@ -23,7 +24,7 @@ function config($stateProvider,$urlRouterProvider){
            .state('about',{
             url:'/about',
             templateUrl:'views/about.html',
-            controller:'AboutCtrl'
+            //controller:'AboutCtrl'
             })
            .state('page1',{
             url:'/page1',
@@ -35,27 +36,40 @@ function config($stateProvider,$urlRouterProvider){
             url:'/page1.1',
             templateUrl:'views/insidepage1.html',
             controller:'page1controller1'
-            })
+              })
+
+          
            .state('page1.2',{
-            url:'/page1.2',
+            url:'/page1.2/:itemid/:itemname',
+
             templateUrl:'views/pageinside2.html',
             controller:'page1controller2'
             })
-           .state('page2',{
-            url:'/page2',
+          /* .state('register',{
+              url:'/register',
+              templateUrl:'views/register.html',
+              controller:'registerctrl'
+            })
+          .state('login',{
+            url:'/login',
+            templateUrl:'views/login.html',
+            
+           })*/
+           .state('miniprojectpage',{
+            url:'/miniprojectpage',
             abstract:true,
             templateUrl:'views/page2content.html',
             controller:'page2controller'
             })
-           .state('page2.1',{
-             url:'/page2.1',
+           .state('miniprojectpage1',{
+             url:'/miniprojectpage1',
              templateUrl:'views/page2.1content.html',
-             controller:'page2controller1'
+             controller:'miniProjectCtrl1'
            })
            .state('page2.2',{
              url:'/page2.2',
              templateUrl:'views/page2.2content.html',
              controller:'page2controller2'
            })
-            $urlRouterProvider.otherwise("/posts");
+            $urlRouterProvider.otherwise('/posts');
 }

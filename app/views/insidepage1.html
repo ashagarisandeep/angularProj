@@ -1,1 +1,17 @@
-<h2>this is page1.1 {{insidepage1}}</h2>
+<div>
+<label>search:</label><input type="text" name="" ng-model="inputlist"> 
+			
+	<!-- <button ng-click="orderByMe('Country')">orderlist</button> -->
+</div>
+<div class="row">
+
+	<div class="col-lg-5 col-lg-offset-0">
+		
+			
+		
+		<ul ng-repeat="user in res | filter:inputlist" ng-click="list(user.id,user.first_name)">
+			<li style="list-style-type: none;"> {{user.first_name}} ,{{user.last_name}}</li>
+		</ul>
+</div>
+
+</div>
